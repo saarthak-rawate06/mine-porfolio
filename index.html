@@ -877,20 +877,23 @@
         <section class="contact-form">
       
           <h3 class="h3 form-title">Contact Form</h3>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-  <input type="hidden" name="form-name" value="13add553-bbd9-4535-91d6-bb14cb34842d">
-  <p style="display: none;">
-    <label>Don’t fill this out: <input name="bot-field" /></label>
-  </p>
+      <form method="POST" id="contact-form" class="form">
+  <input type="hidden" name="access_key" value="13add553-bbd9-4535-91d6-bb14cb34842d">
+
   <div class="input-wrapper">
-    <input type="text" name="fullname" class="form-input" placeholder="Full name" required>
+    <input type="text" name="name" class="form-input" placeholder="Full name" required>
     <input type="email" name="email" class="form-input" placeholder="Email address" required>
   </div>
+
   <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
-  <button class="form-btn" type="submit">
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+  <button type="submit" class="form-btn">
     <ion-icon name="paper-plane"></ion-icon>
     <span>Send Message</span>
   </button>
+
+  <div id="result" class="form-result"></div>
 </form>
 
       
