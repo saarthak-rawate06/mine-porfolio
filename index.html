@@ -910,7 +910,48 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+ <script>
+    const form = document.getElementById("contact-form");
+    const result = document.getElementById("result");
 
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData.entries());
+      const json = JSON.stringify(object);
+
+      result.textContent = "Please wait...";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          const json = await response.json();
+          if (response.status === 200) {
+            result.textContent = "Form submitted successfully!";
+          } else {
+            console.error(response);
+            result.textContent = json.message;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          result.textContent = "Something went wrong!";
+        })
+        .finally(() => {
+          form.reset();
+          setTimeout(() => {
+            result.textContent = "";
+          }, 3000);
+        });
+    });
+  </script>
 </body>
 
 </html>
