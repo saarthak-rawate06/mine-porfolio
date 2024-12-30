@@ -182,7 +182,7 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+              <button class="navbar-link" data-nav-link>Contact</button>
           </li>
 
         </ul>
@@ -868,38 +868,28 @@
       <!--
         - #CONTACT
       -->
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-      
-        <section class="contact-form">
-      
-          <h3 class="h3 form-title">Contact Form</h3>
-      <form method="POST" id="contact-form" class="form">
-  <input type="hidden" name="access_key" value="13add553-bbd9-4535-91d6-bb14cb34842d">
-
-  <div class="input-wrapper">
-    <input type="text" name="name" class="form-input" placeholder="Full name" required>
-    <input type="email" name="email" class="form-input" placeholder="Email address" required>
-  </div>
-
-  <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
-  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-  <button type="submit" class="form-btn">
-    <ion-icon name="paper-plane"></ion-icon>
-    <span>Send Message</span>
-  </button>
-
-  <div id="result" class="form-result"></div>
-</form>
-
-      
-        </section>
-      
-      </article>
+     <article class="contact" data-page="contact">
+  <header>
+    <h2 class="h2 article-title">Contact</h2>
+  </header>
+  <section class="contact-form">
+    <h3 class="h3 form-title">Contact Form</h3>
+    <form method="POST" id="contact-form" class="form" data-form>
+      <input type="hidden" name="access_key" value="13add553-bbd9-4535-91d6-bb14cb34842d">
+      <div class="input-wrapper">
+        <input type="text" name="name" class="form-input" placeholder="Full name" data-form-input required>
+        <input type="email" name="email" class="form-input" placeholder="Email address" data-form-input required>
+      </div>
+      <textarea name="message" class="form-input" placeholder="Your Message" required></textarea>
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+      <button type="submit" class="form-btn" data-form-btn disabled>
+        <ion-icon name="paper-plane"></ion-icon>
+        <span>Send Message</span>
+      </button>
+      <div id="result" class="form-result"></div>
+    </form>
+  </section>
+</article>
       
     </div>
 
