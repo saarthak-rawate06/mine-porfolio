@@ -1910,3 +1910,12 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+.form-result {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #4caf50; /* Green for success */
+}
+.form-result.error {
+  color: #f44336; /* Red for errors */
+}
