@@ -139,25 +139,44 @@ for (let i = 0; i < filterBtn.length; i++) {
 }
 
 
-
-// contact form variables
+// Contact form variables
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
+const thankYouPage = document.querySelector("[data-page='thank-you']");
+const contactPage = document.querySelector("[data-page='contact']");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
+// Enable or disable the send button based on form validity
+formInputs.forEach(input => {
+  input.addEventListener("input", () => {
+    form.checkValidity()
+      ? formBtn.removeAttribute("disabled")
+      : formBtn.setAttribute("disabled", "");
   });
-}
+});
+
+// Handle form submission
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Use FormData to submit the form to Netlify
+  const formData = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => {
+      // Display the "Thank You" page
+      contactPage.style.display = "none";
+      thankYouPage.style.display = "block";
+    })
+    .catch(error => {
+      alert("There was an error submitting the form. Please try again.");
+      console.error("Form submission error:", error);
+    });
+});
+
 
 
 
