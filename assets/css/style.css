@@ -1909,13 +1909,68 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+
 }
 
-.form-result {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #4caf50; /* Green for success */
+.modal-container {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
-.form-result.error {
-  color: #f44336; /* Red for errors */
+
+.modal-container.active {
+  opacity: 1;
+}
+
+.testimonials-modal {
+  transform: translateY(-20px);
+  transition: transform 0.3s ease-out;
+}
+
+.modal-container.active .testimonials-modal {
+  transform: translateY(0);
+}
+
+/* Thank You Page Styles */
+.thank-you {
+  display: none;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f4f4f9;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.thank-you header h2 {
+  font-size: 2rem;
+  color: #4CAF50; /* Green color for success */
+  margin-bottom: 20px;
+}
+
+.thank-you p {
+  font-size: 1.2rem;
+  font-weight: bold; /* Bold text */
+  color: white; /* White color */
+  line-height: 1.6;
+  background-color: #4CAF50; /* Green background to match the theme */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.thank-you button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green color for button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.thank-you button:hover {
+  background-color: #45a049; /* Darker green on hover */
 }
